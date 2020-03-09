@@ -1,0 +1,21 @@
+.characters-navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    padding-top: 50px;
+    .characters-navigation__wrapper {
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+        .characters-navigation_link {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            width: 150px;
+            margin-bottom: 5px;
+        }
+
+    }
+}
