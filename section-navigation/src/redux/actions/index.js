@@ -10,3 +10,6 @@ export const getCharacters = () => dispatch => {
 
 const getCharactersSuccess  = characters  => ({ type: "GET_CHARACTERS_SUCCESS", payload: characters });
 const getCharactersError    = error => ({ type: "GET_CHARACTERS_ERROR", payload: error });
+
+
+const setActiveCharacter = character => ({type: 'SET_ACTIVE_CHARACTER', payload: character})

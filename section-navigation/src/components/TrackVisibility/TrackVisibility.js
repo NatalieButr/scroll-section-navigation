@@ -1,66 +1,45 @@
-import React, { Component, useRef } from 'react';
-
+import React, { useEffect, useRef, useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
 import './styles.scss';
 
 const TrackVisibility = (props) => {
+  
     const pageHeight = window.innerHeight;
     const observerMargin = Math.floor(pageHeight / 2);
+   
     const section = useRef(null)
-    // const activeClass =  activeCharacter === data.id ? 'character-block--active' : '';  
-    // useEffect(() => {
-    //     const observerConfig = {
-    //       rootMargin: `-${
-    //         pageHeight % 2 === 0 ? observerMargin - 1 : observerMargin
-    //       }px 0px -${observerMargin}px 0px`,
-    //     };
-    //     const handleIntersection = function(entries) {
-    //       entries.forEach((entry) => {
-    //         if (entry.target.id !== activeCharacter && entry.isIntersecting) {
-    //           setActiveCharacter(entry.target.id);
-    //         }
-    //       });
-    //     };
-    //     const observer = new IntersectionObserver(
-    //       handleIntersection,
-    //       observerConfig
-    //     );
-    //     observer.observe(refs[data.name].current);
-    //     return () => observer.disconnect(); // Clenaup the observer if component unmount.
-    //   }, [
-    //     activeCharacter,
-    //     setActiveCharacter,
-    //     observerMargin,
-    //     refs,
-    //     data,
-    //     pageHeight,
-    //   ]);
+  
+  
+    const activeCharacter = useSelector(state => state.characters.activeCharacter);
+    const dispatch = useDispatch()
+  
 
-//    ref = React.createRef();
-
-//    componentDidMount() {
-//        const observerMargin = Math.floor(window.innerHeight / 2);
-//        if (!this.ref.current) return;
-
-//        this.observer = new IntersectionObserver(this.interSectionCallback, {
-//             root: null,
-//             rootMargin: `-${window.innerHeight % 2 === 0 ? observerMargin - 1 : observerMargin}px 0px -${observerMargin}px 0px`,
-//             threshold: 0,
-//        });
-//        this.observer.observe(this.ref.current);
-
-//     }
-
-//     interSectionCallback = (entries, observer) => {
-//         entries.forEach(entry => {
-//             if (entry.intersectionRatio * 100 > 0) {
-//                 this.props.onVisible();
-//             }
-//         });
-//     };
+    const { name } = props;
+    const activeClass = activeCharacter === name ? 'characters-content--active' : ''; 
+    
+    useEffect(() => {
+      const handleIntersection = function(entries) {
+          entries.forEach((entry) => {
+            if (entry.intersectionRatio * 100 > 0) {
+              dispatch({ type: 'SET_ACTIVE_CHARACTER', payload: name })
+            }
+          });
+        };
+        const observer = new IntersectionObserver(
+          handleIntersection,
+          {
+            root: null,
+            rootMargin: `-${pageHeight % 2 === 0 ? observerMargin - 1 : observerMargin}px 0px -${observerMargin}px 0px`,
+            threshold: 0,
+       }
+        );
+        observer.observe(section.current);
+        return () => observer.disconnect();
+      }, [ observerMargin, pageHeight, name, dispatch]);
 
         return (
-            <div className='characters-content_section' ref={section}>{props.children}</div>
+            <div className={`characters-content_section ${activeClass}`} ref={section}>{props.children}</div>
         )
 }
 

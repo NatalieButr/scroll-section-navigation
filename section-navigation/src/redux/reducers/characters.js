@@ -1,5 +1,6 @@
 const initialState = {
-    characters: []
+    characters: [],
+    activeCharacter: '',
 }
 
 
@@ -8,14 +9,17 @@ export default function reducers(state = initialState, action) {
     switch(action.type)
      {
         case 'GET_CHARACTERS_SUCCESS':
-            console.log(action.payload)
             return  {
                 ...state,
                 characters: action.payload,
             };
         case 'GET_CHARACTERS_ERROR':
-            console.log('error', action.payload)
             return state;
+        case 'SET_ACTIVE_CHARACTER': 
+            return {
+                ...state,
+                activeCharacter: action.payload,
+            }    
         default:
             return state;
     }

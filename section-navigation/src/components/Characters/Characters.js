@@ -9,7 +9,7 @@ import Character from './Character'
 const Characters = (props) => {
 
     const { characters } = props;
-     console.log(characters)
+
     return (
         <div className='characters-content'>
            {characters.map((character, i) => <Character key={i} character={character}/>)}

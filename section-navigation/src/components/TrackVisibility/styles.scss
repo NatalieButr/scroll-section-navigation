@@ -1,8 +1,9 @@
 .characters-content_section {
     width: 70%;
     display: flex;
-    background: white;
-    border-radius: 10px;
     margin-bottom: 2em;
     padding: 20px;
+    &.characters-content--active {
+        background: #C09F80;
+    }
 }

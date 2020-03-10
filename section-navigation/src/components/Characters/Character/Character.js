@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-
+import React from 'react';
 
 import TrackVisibility from '../../TrackVisibility';
 import './styles.scss'
 
 const Character = (props) => {
     const {character} = props;
-    const [activeCharacter, setActiveCharacter] = useState();
-    console.log(activeCharacter, character)
 
     return (
-        <TrackVisibility  onVisible={()=> setActiveCharacter()}>
+        <TrackVisibility name={character.name}>
             <div className='characters-content__character'>
                 <div className='character_column photo_block'>
                     <div className='image photo_block'>
