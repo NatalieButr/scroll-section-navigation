@@ -1,26 +1,27 @@
 import React from 'react'
-import { connect } from 'react-redux'
-//inport {Link} from 'react-dom'
+import {useSelector} from 'react-redux';
 
 import './styles.scss'
 
 
-const CharactersList = (props) => {
+const CharactersList = ({ handleClick}) => {
 
-    const { characters } = props;
-     console.log(characters)
+
+    const characters = useSelector(state =>state.characters.characters)
+    const activeCharacter = useSelector(state => state.characters.activeCharacter)
+
     return (
         <div className='characters-navigation'>
-            <div className='characters-navigation__wrapper'>
-                {characters.map((character, i) => <a key={i} href='#' className='text characters-navigation_link'>{character.name}</a>)}
-            </div>
+            <ul className='characters-navigation__wrapper'>
+             {characters.map((character, i) =>
+              <li key={i} 
+                  onClick={() => handleClick(character.name)} 
+                  className={`text characters-navigation_link ${activeCharacter === character.name ? 'link--active' : ''}`}>
+                  {character.name}     </li>)}
+            </ul>
         </div>
     )
 }
 
-const mapStateToProps = state => ({
-    characters: state.characters.characters,
-})
-export default connect(
-    mapStateToProps,
-  )(CharactersList)
+
+export default CharactersList;

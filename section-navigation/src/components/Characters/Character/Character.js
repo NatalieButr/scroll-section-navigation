@@ -4,10 +4,10 @@ import TrackVisibility from '../../TrackVisibility';
 import './styles.scss'
 
 const Character = (props) => {
-    const {character} = props;
+    const {character, refs} = props;
 
     return (
-        <TrackVisibility name={character.name}>
+        <TrackVisibility name={character.name} refs={refs}>
             <div className='characters-content__character'>
                 <div className='character_column photo_block'>
                     <div className='image photo_block'>

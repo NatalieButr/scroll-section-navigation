@@ -1,5 +1,4 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
 
 
 import './styles.scss'
@@ -8,18 +7,13 @@ import Character from './Character'
 
 const Characters = (props) => {
 
-    const { characters } = props;
+    const { characters, refs } = props;
 
     return (
         <div className='characters-content'>
-           {characters.map((character, i) => <Character key={i} character={character}/>)}
+           {characters.map((character, i) => <Character key={i} character={character} refs={refs}/>)}
         </div>
     )
 }
 
-const mapStateToProps = state => ({
-    characters: state.characters.characters,
-})
-export default connect(
-    mapStateToProps,
-  )(Characters)
+export default Characters
