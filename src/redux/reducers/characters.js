@@ -1,6 +1,7 @@
 const initialState = {
     characters: [],
     activeCharacter: '',
+    click: false
 }
 
 
@@ -18,7 +19,8 @@ export default function reducers(state = initialState, action) {
         case 'SET_ACTIVE_CHARACTER': 
             return {
                 ...state,
-                activeCharacter: action.payload,
+                activeCharacter: action.payload.name,
+                click: action.payload.click,
             }    
         default:
             return state;

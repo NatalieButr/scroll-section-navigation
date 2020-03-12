@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React, { useEffect } from 'react';
 
 import './styles.scss';
 
@@ -8,20 +7,15 @@ const TrackVisibility = (props) => {
     const pageHeight = window.innerHeight;
     const observerMargin = Math.floor(pageHeight / 2);
   
-  
-    const activeCharacter = useSelector(state => state.characters.activeCharacter);
-    const dispatch = useDispatch()
-  
-
-    const { name, refs } = props;
+    const { name, refs, activeCharacter, onVisible } = props;
+    
     const activeClass = activeCharacter === name ? 'characters-content--active' : ''; 
-
+  
     useEffect(() => {
       const handleIntersection = function(entries) {
           entries.forEach((entry) => {
-            console.log(activeCharacter, name)
-            if (name !== activeCharacter && entry.isIntersecting) {
-              dispatch({ type: 'SET_ACTIVE_CHARACTER', payload: name })
+            if (entry.intersectionRatio * 100 > 0) {
+              onVisible(name)
             }
           });
         };
@@ -35,7 +29,7 @@ const TrackVisibility = (props) => {
         );
         observer.observe(refs[name].current);
         return () => observer.disconnect();
-      }, [ observerMargin, pageHeight, name, dispatch, refs, activeCharacter ]);
+      }, [ observerMargin, pageHeight, name, refs, activeCharacter, onVisible ]);
 
         return (
             <div className={`characters-content_section ${activeClass}`} ref={refs[name]}>{props.children}</div>

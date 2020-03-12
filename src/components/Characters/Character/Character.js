@@ -1,13 +1,31 @@
 import React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
 import TrackVisibility from '../../TrackVisibility';
-import './styles.scss'
+import './styles.scss';
+
 
 const Character = (props) => {
+
     const {character, refs} = props;
 
+    const activeCharacter = useSelector(state => state.characters.activeCharacter);
+    const click = useSelector(state => state.characters.click)
+    const dispatch = useDispatch()
+
+    const onVisible = (name) => {
+        if(click && activeCharacter === name) {
+            dispatch({ type: 'SET_ACTIVE_CHARACTER', payload: {name: name, click: false} })
+        } else if(!click) {
+            dispatch({ type: 'SET_ACTIVE_CHARACTER', payload: {name: name, click: false} })
+        }
+    }
+
     return (
-        <TrackVisibility name={character.name} refs={refs}>
+        <TrackVisibility onVisible={onVisible}
+                         activeCharacter={activeCharacter} 
+                         name={character.name} 
+                         refs={refs}>
             <div className='characters-content__character'>
                 <div className='character_column photo_block'>
                     <div className='image photo_block'>
