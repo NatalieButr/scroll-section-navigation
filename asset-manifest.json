@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/scroll-section-navigation/static/css/main.5f6aceac.chunk.css",
+    "main.js": "/scroll-section-navigation/static/js/main.3e8e8e37.chunk.js",
+    "main.js.map": "/scroll-section-navigation/static/js/main.3e8e8e37.chunk.js.map",
+    "runtime-main.js": "/scroll-section-navigation/static/js/runtime-main.f1d31cde.js",
+    "runtime-main.js.map": "/scroll-section-navigation/static/js/runtime-main.f1d31cde.js.map",
+    "static/js/2.32bbb49f.chunk.js": "/scroll-section-navigation/static/js/2.32bbb49f.chunk.js",
+    "static/js/2.32bbb49f.chunk.js.map": "/scroll-section-navigation/static/js/2.32bbb49f.chunk.js.map",
+    "index.html": "/scroll-section-navigation/index.html",
+    "precache-manifest.96dd176e7155ce3b448e88525d42989e.js": "/scroll-section-navigation/precache-manifest.96dd176e7155ce3b448e88525d42989e.js",
+    "service-worker.js": "/scroll-section-navigation/service-worker.js",
+    "static/css/main.5f6aceac.chunk.css.map": "/scroll-section-navigation/static/css/main.5f6aceac.chunk.css.map",
+    "static/js/2.32bbb49f.chunk.js.LICENSE.txt": "/scroll-section-navigation/static/js/2.32bbb49f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f1d31cde.js",
+    "static/js/2.32bbb49f.chunk.js",
+    "static/css/main.5f6aceac.chunk.css",
+    "static/js/main.3e8e8e37.chunk.js"
+  ]
+}
