@@ -12,6 +12,5 @@ raf.mount = mount
 
 // Fail tests on any warning
 console.error = message => {
-  console.log(message)
- //throw new Error(message)
+   throw new Error(message)
 }
