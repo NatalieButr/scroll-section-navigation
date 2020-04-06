@@ -1,12 +1,9 @@
-import React, {useState} from 'react';
-// import {Link} 
+import React from 'react';
 
 import './styles.scss'
 
 
 function Header()  {
-    const [links] = useState(['Meню', 'O нас', 'Контакты']);
-
 
     return (
         <header>
@@ -15,7 +12,6 @@ function Header()  {
             </div>
         </header>
     )
-    
 }
 
 export default Header;
