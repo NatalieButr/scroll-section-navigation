@@ -1,4 +1,5 @@
 ## Simple scroll-section-navigarion app 
+
 IntersectionObserver API with React Hooks
 
 How to use: 
@@ -6,5 +7,5 @@ How to use:
 2. npm install
 3. npm start
    
-   
+
 ## DEMO  https://nataliebutr.github.io/scroll-section-navigation/.

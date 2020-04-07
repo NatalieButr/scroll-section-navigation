@@ -4,8 +4,6 @@ const initialState = {
     click: false
 }
 
-
-
 export default function reducers(state = initialState, action) {
     switch(action.type)
      {

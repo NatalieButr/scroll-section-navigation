@@ -1,11 +1,10 @@
 import React from 'react'
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import './styles.scss'
 
 
 const CharactersList = ({ handleClick}) => {
-
 
     const characters = useSelector(state =>state.characters.characters)
     const activeCharacter = useSelector(state => state.characters.activeCharacter)
